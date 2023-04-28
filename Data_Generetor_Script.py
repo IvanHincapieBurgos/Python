@@ -13,7 +13,7 @@ for i in range(1, 1500):
         "client_id": ''.join(random.choices(string.digits, k=7)),
         "name": random.choice(['Juan', 'María', 'Pedro', 'Laura', 'Gabriela', 'José', 'Carla', 'Antonio', 'Ana', 'Jorge', 'Valeria', 'Miguel', 'Cristina', 'Fernando', 'Julia', 'Ricardo', 'Renata', 'Diego', 'Sofía', 'Daniel']),
         "last_name": random.choice(['González', 'Pérez', 'Martínez', 'Sánchez', 'López', 'Gómez', 'Hernández', 'Fernández', 'Rodríguez', 'García', 'Díaz', 'Torres', 'Ramos', 'Ruiz', 'Moreno', 'Alonso', 'Romero', 'Jiménez', 'Álvarez', 'Vargas']),
-        "addresses": f"{random.choice(['Calle','Carrera'])} {random.randint(1, 100)} # {random.randint(1, 20)}-{random.randint(1, 100)}",
+        "addresses": f"{random.choice(['Calle','Carrera'])} {random.randint(1, 100)} #{random.randint(1, 20)}-{random.randint(1, 100)}",
         "city": random.choice(["Bogotá", "Medellín", "Cali", "Cartagena", "Ibagué"]),
         "Country": "Colombia"
     }
@@ -22,28 +22,34 @@ for i in range(1, 1500):
 #Generate data for "Products" sheet.
 products = []
 for i in range(1, 21):
+    unit_price = round(random.uniform(10, 100), 2)
+    discount_rate = random.uniform(1, 50)
     producto = {
-        "product_id": ''.join(random.choices(string.ascii_uppercase, k=4)) + str(''.join(random.choices(string.digits, k=3))),
+        "product_id": ''.join(random.choices(string.ascii_uppercase, k=3)) + '-' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=9)),
         "product_name": f"Producto {i}",
-        "Description": f"Descripción del producto {i}.",
-        "price": round(random.uniform(10, 100), 2),
-        "category": random.choice(["Electrónica", "Ropa", "Hogar", "Deportes", "Juguetes"])
+        "Description": f"Product Description {i}.",
+        "category": random.choice(["Electrónica", "Ropa", "Hogar", "Deportes", "Juguetes"]),
+        "order_weight": round(random.uniform(0, 20), 2),
+        "unit_price": unit_price,
+        "Unit_Cost": round(unit_price * (1 - (discount_rate/100)),2)
     }
     products.append(producto)
 
 #Generate data for "Ordes" sheet.
 orders = []
-for i in range(1, 5001):
+for i in range(1, 35001):
     fecha = datetime.datetime.now() - datetime.timedelta(days=random.randint(0, 30))
+    status = random.choice(["pendiente","pagado","rechazado"])
+    delivery_status = random.choice(["pendiente","enviado","entregado"]) if status == "pagado" else "pendiente" if status == "pendiente" else "rechazado"
     pedido = {
         "Order_id": i,
         "Order_date": fecha.date(),
-        "status": random.choice(["pendiente","pagado","rechazado"]),
-        "delivery_status": random.choice(["pendiente","enviado","entregado"]),
+        "status": status,
+        "delivery_status": delivery_status,
         "client_id": random.choice(clients)["client_id"],
         "product_id": random.choice(products)["product_id"],
         "items": random.randint(1, 5),
-        "discount_amount": round(random.uniform(0, 20), 2)
+        "discount_amount": round(random.uniform(0, 10), 2)
     }
     orders.append(pedido)
 
