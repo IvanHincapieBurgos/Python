@@ -38,12 +38,16 @@ for i in range(1, 21):
 #Generate data for "Ordes" sheet.
 orders = []
 for i in range(1, 35001):
-    fecha = datetime.datetime.now() - datetime.timedelta(days=random.randint(0, 30))
+    start_date = datetime.date(2021, 1, 1)
+    end_date = datetime.date.today()
+    days_between = (end_date - start_date).days
+    delta = end_date - start_date
+    date = start_date + datetime.timedelta(days=random.randint(0, delta.days))
     status = random.choice(["pendiente","pagado","rechazado"])
     delivery_status = random.choice(["pendiente","enviado","entregado"]) if status == "pagado" else "pendiente" if status == "pendiente" else "rechazado"
     pedido = {
         "Order_id": i,
-        "Order_date": fecha.date(),
+        "Order_date": date,
         "status": status,
         "delivery_status": delivery_status,
         "client_id": random.choice(clients)["client_id"],
