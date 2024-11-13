@@ -13,12 +13,12 @@ dates = pd.date_range(start='2024-11-06', end='2024-11-11', freq='D')
 
 # Country's ID's
 ids = {
-    'Argentina'     : 247
-    ,'Brasil'       : 230
-    ,'Costa Rica'   : 282
-    ,'Ecuador'      : 291
-    ,'Perú'         : 383
-    ,'Uruguay'      : 437
+    'Argentina'     : 1
+    ,'Brasil'       : 2
+    ,'Costa Rica'   : 3
+    ,'Ecuador'      : 4
+    ,'Perú'         : 5
+    ,'Uruguay'      : 6
 }
 
 # Load environment variables from the .env file
