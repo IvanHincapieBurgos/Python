@@ -1,6 +1,6 @@
 # Google Colab
 
-El cómo llegue a conocerlo es debido a un proyecto, que a su vez me llevo a una búsqueda por la optimización de las tareas manuales. Sinedo una gran ganacia de tiempo para el equipo de Customer Experience (CX). A través del aprendizaje y aplicación de Google Colab, logré transformar un proceso repetitivo en una solución automatizada y eficiente.
+El cómo llegue a conocerlo es debido a un proyecto, que a su vez me llevo a una búsqueda por la optimización de las tareas manuales. Siendo una gran ganacia de tiempo para el equipo de Customer Experience (CX). A través del aprendizaje y aplicación de Google Colab, logré transformar un proceso repetitivo en una solución automatizada y eficiente.
 
 ## Contexto del Problema
 Las tareas consistían en gestionar los cupones habilitados para el equipo de CX, que involucraban los siguientes pasos:
