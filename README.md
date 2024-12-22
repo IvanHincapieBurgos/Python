@@ -33,6 +33,8 @@ Con esta solución:
 
 ---
 ¡Espero que esta iniciativa también inspire a automatizar tareas repetitivas y a compartir tus aprendizajes con la comunidad! 🚀
+---
+## Cosas Útiles 
 
 ### ¿Cómo puedo hacer para que Google Colab se conecte con mi Drive? (Conexión a Google Drive)
 1. Ejecuta el siguiente código para montar Google Drive en tu entorno de Colab:
