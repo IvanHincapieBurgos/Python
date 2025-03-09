@@ -1,12 +1,12 @@
-Import necessary libraries
+# Import necessary libraries
 import pandas as pd
 import random
 import datetime
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 import string
-Generate data for "Clients" sheet.
 
+# Generate data for "Clients" sheet.
 clients = []
 for i in range(1, 1501):
     clientes = {
@@ -18,22 +18,12 @@ for i in range(1, 1501):
         "Country": "Colombia"
     }
     clients.append(clientes)
-Create a DataFrame to clients
+# Create a DataFrame to clients
 df_clients = pd.DataFrame(clients)
-
-#Top 3 rows of dataframe
-df_clients.head(3)
-
-#Bottom 3 rows of dataframe
-#df_clients.tail(3)
-Data type changes
-#Changes
+# Changes
 df_clients['client_id'] = df_clients['client_id'].astype('Int64')
 
-#DataFrame overview
-df_clients.info()
-Generate data for "Products" sheet.
-
+#Generate data for "Products" sheet.
 products = []
 for i in range(1, 21):
     unit_price = random.uniform(10, 100)
@@ -50,20 +40,15 @@ for i in range(1, 21):
     products.append(producto)
 
     
-Create a DataFrame to products
+#Create a DataFrame to products
 df_products = pd.DataFrame(products)
 
-#Top 3 rows of dataframe
-df_products.head(3)
-Data type changes
-#Changes
+# Changes
 df_products['product_weight'] = df_products['product_weight'].astype(float)
 df_products['unit_price'] = df_products['unit_price'].astype(float)
 df_products['Unit_Cost'] = df_products['Unit_Cost'].astype(float)
 
-#DataFrame overview
-df_products.info()
-Generate data for "Ordes" sheet.
+# Generate data for "Ordes" sheet.
 orders = []
 for i in range(1, 35001):
     start_date = datetime.date(2018, 1, 1)
@@ -84,26 +69,19 @@ for i in range(1, 35001):
         "discount_amount": ("%.2f" % random.uniform(0, 10))
     }
     orders.append(pedido)
-Create a DataFrame to orders
+# Create a DataFrame to orders
 df_orders = pd.DataFrame(orders)
 
-#Top 3 rows of dataframe
-df_orders.head(3)
-Data type changes
-#Changes
+# Changes
 df_orders['Order_date'] = pd.to_datetime(df_orders['Order_date'])
 df_orders['client_id'] = df_orders['client_id'].astype('Int64')
 df_orders['discount_amount'] = df_orders['discount_amount'].astype(float)
 
-#DataFrame overview
-df_orders.info()
-df_orders.describe()
-
-DataFrame's dimensions
+#DataFrame's dimensions
 [df_clients.ndim,df_products.ndim,df_orders.ndim]
-Create a excel workbook
+# Create a excel workbook
 workbook = Workbook()
-Insert each DataFrame in a separate Excel sheets
+# Insert each DataFrame in a separate Excel sheets
 workbook.create_sheet("Clients")
 sheet = workbook["Clients"]
 for row in dataframe_to_rows(df_clients, index=False, header=True):
@@ -118,5 +96,5 @@ workbook.create_sheet("Orders")
 sheet = workbook["Orders"]
 for row in dataframe_to_rows(df_orders, index=False, header=True):
     sheet.append(row)
-Save and close workbook
+# Save and close workbook
 workbook.save(filename="Raw_Data.xlsx")
