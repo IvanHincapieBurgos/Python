@@ -1,0 +1,36 @@
+# Entornos virtuales
+ops_virtual_env/
+venv/
+.venv/
+
+# Variables de entorno y credenciales
+.env
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+*.log
+
+# Modelo NLP
+modelo_nlp/
+modelo_npl/
+
+# IDE - IntelliJ/PyCharm
+.idea/
+*.iml
+*.xml
+
+# Selenium/Chrome
+chromeprofile/
+.wdm/
+
+# PDFs y CSVs
+*.pdf
++*.csv
+
+# Carpeta de logs temporales
++logs_temp/
+logs_temp/action_function_return_2025-10-23_09-57-28.csv
+/logs_temp/
