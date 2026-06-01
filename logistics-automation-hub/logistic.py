@@ -9116,13 +9116,9 @@ def accionable(include_execute_button=True):
         agente_inconv_label.pack(pady=5)
 
         agente_inconv_options = [
-            "Luciana Mesulan",
-            "Erika Perez",
-            "Agustin Kosseda",
-            "Sheremy Alfonso",
-            "Giannina Hernandez",
-            "Rocio Castillo",
-            "Angie Tovar"
+            "User 1",
+            "User 2",
+            "ADMIN"
         ]
 
         agente_inconv_var = tk.StringVar(root)
