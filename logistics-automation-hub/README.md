@@ -12,6 +12,19 @@
 
 The script exposes a graphical user interface (GUI) with credential fields and selectable actions.
 
+## Project Structure
+
+```
+logistics-automation-hub/
+├── logistics.py                 # Main automation module with core functions
+├── requirements.txt             # Python dependencies
+├── credenciales_drive.json      # Google API credentials (not included in repo)
+└── registros/                   # Logging and registration module
+    ├── logger_helper.py         # Helper for logging actions and errors
+    ├── __init__.py              # Package initialization
+    └── README.md                # Registros module documentation
+```
+
 ---
 
 ## 2. Requirements and Credential Files
